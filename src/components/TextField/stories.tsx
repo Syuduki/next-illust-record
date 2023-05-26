@@ -14,6 +14,7 @@ type Story = StoryObj<typeof TextField>;
 
 export const Nomal: Story = {
   args: {
+    width: 500,
     variant: 'outlined',
     size: 'medium',
     multiline: true,
@@ -22,7 +23,7 @@ export const Nomal: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onChangeValue: action('onChangeValue'),
+    onBlurValue: action('onBlurValue'),
   },
 };
 
@@ -36,7 +37,7 @@ export const Required: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onChangeValue: action('onChangeValue'),
+    onBlurValue: action('onBlurValue'),
   },
 };
 
@@ -50,7 +51,7 @@ export const Error: Story = {
     label: 'ストーリーテキスト',
     value: 'storybook',
     message: 'この項目は必須です。',
-    onChangeValue: action('onChangeValue'),
+    onBlurValue: action('onBlurValue'),
   },
 };
 
@@ -64,6 +65,6 @@ export const Multiline: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onChangeValue: action('onChangeValue'),
+    onBlurValue: action('onBlurValue'),
   },
 };
