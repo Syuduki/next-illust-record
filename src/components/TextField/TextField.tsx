@@ -33,10 +33,10 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
         variant={props.variant}
         value={props.value}
         multiline={props.multiline}
-        onChange={(e) => props.onChangeValue(e.target.value)}
+        onBlur={(e) => props.onBlurValue(e.target.value)}
         error={!!props.message}
         helperText={props.message}
-        style={{ width: '100%' }}
+        fullWidth
       ></MuiTextField>
     </Stack>
   );
