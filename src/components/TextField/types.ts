@@ -5,7 +5,7 @@ export interface Props {
   multiline: boolean;
   label: string;
   value: string;
-  onChangeValue: (value: string) => void;
+  onBlurValue: (value: string) => void;
   message?: string;
   required: boolean;
 }
