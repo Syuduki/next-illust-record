@@ -11,6 +11,7 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
       justifyContent="flex-start"
       alignItems="flex-start"
       spacing={0.5}
+      style={{ width: '100%' }}
     >
       <Stack
         direction="row"
@@ -36,7 +37,7 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
         onBlur={(e) => props.onBlurValue(e.target.value)}
         error={!!props.message}
         helperText={props.message}
-        fullWidth
+        style={{ width: props.width ? `${props.width}px` : '100%' }}
       ></MuiTextField>
     </Stack>
   );

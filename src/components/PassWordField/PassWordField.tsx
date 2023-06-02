@@ -33,6 +33,7 @@ export const PassWordField: React.FC<Props> = ({ ...props }) => {
       justifyContent="flex-start"
       alignItems="flex-start"
       spacing={0.5}
+      style={{ width: '100%' }}
     >
       <Stack
         direction="row"
@@ -53,7 +54,7 @@ export const PassWordField: React.FC<Props> = ({ ...props }) => {
         variant={props.variant}
         size={props.size}
         error={!!props.message}
-        fullWidth
+        style={{ width: props.width ? `${props.width}px` : '100%' }}
       >
         <OutlinedInput
           type={values.showPassword ? 'text' : 'password'}

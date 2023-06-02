@@ -14,6 +14,7 @@ type Story = StoryObj<typeof PassWordField>;
 
 export const Nomal: Story = {
   args: {
+    width: 500,
     variant: 'outlined',
     size: 'medium',
     required: false,

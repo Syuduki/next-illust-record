@@ -8,4 +8,5 @@ export interface Props {
   onBlurValue: (value: string) => void;
   message?: string;
   required: boolean;
+  width?: number;
 }
