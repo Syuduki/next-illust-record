@@ -58,11 +58,11 @@ export const PassWordField: React.FC<Props> = ({ ...props }) => {
       >
         <OutlinedInput
           type={values.showPassword ? 'text' : 'password'}
-          value={props.value}
+          value={props.value ?? ''}
           inputProps={{
             autoComplete: 'new-password',
           }}
-          onBlur={(e) => props.onBlurValue(e.target.value)}
+          onBlur={(e) => props.onBlur(e.target.value)}
           endAdornment={
             <InputAdornment position="end">
               <IconButton

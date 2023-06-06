@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { PassWordField } from './PassWordField';
 
 const meta: Meta<typeof PassWordField> = {
-  title: 'Component/PassWordField',
+  title: 'Components/PassWordField',
   component: PassWordField,
   tags: ['component'],
 };
@@ -22,7 +22,7 @@ export const Nomal: Story = {
     id: 'story',
     label: 'ストーリーパスワード',
     value: 'storybook',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlur'),
   },
 };
 
@@ -35,7 +35,7 @@ export const Required: Story = {
     id: 'story',
     label: 'ストーリーパスワード',
     value: 'storybook',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlur'),
   },
 };
 
@@ -46,8 +46,8 @@ export const Error: Story = {
     required: true,
     id: 'story',
     label: 'ストーリーパスワード',
-    value: 'storybook',
+    value: null,
     message: 'この項目は必須です。',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlur'),
   },
 };
