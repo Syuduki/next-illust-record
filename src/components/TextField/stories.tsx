@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { TextField } from './TextField';
 
 const meta: Meta<typeof TextField> = {
-  title: 'Component/TextField',
+  title: 'Components/TextField',
   component: TextField,
   tags: ['component'],
 };
@@ -23,7 +23,7 @@ export const Nomal: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlurValue'),
   },
 };
 
@@ -37,7 +37,7 @@ export const Required: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlurValue'),
   },
 };
 
@@ -49,9 +49,9 @@ export const Error: Story = {
     required: true,
     id: 'story',
     label: 'ストーリーテキスト',
-    value: 'storybook',
+    value: null,
     message: 'この項目は必須です。',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlurValue'),
   },
 };
 
@@ -65,6 +65,6 @@ export const Multiline: Story = {
     id: 'story',
     label: 'ストーリーテキスト',
     value: 'storybook',
-    onBlurValue: action('onBlurValue'),
+    onBlur: action('onBlurValue'),
   },
 };

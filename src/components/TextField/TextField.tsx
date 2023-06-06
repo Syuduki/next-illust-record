@@ -32,9 +32,9 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
         id={props.id}
         size={props.size}
         variant={props.variant}
-        value={props.value}
+        value={props.value ?? ''}
         multiline={props.multiline}
-        onBlur={(e) => props.onBlurValue(e.target.value)}
+        onBlur={(e) => props.onBlur(e.target.value)}
         error={!!props.message}
         helperText={props.message}
         style={{ width: props.width ? `${props.width}px` : '100%' }}

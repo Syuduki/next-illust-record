@@ -7,19 +7,20 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
+import { getMessage } from '@/utils';
 import { InputController } from '@/components';
 import { RepositoryFactory } from '@/lib';
 import { ValidateMessage } from '@/types';
-import { Props, LoginData } from './types';
+import { Props, CreateUserData } from './types';
 import { FORM_DATA_LIST } from './formData';
 
 /**
  *
  * @param onAccept -API成功時に発火する-
- * @param _StorybookLoginFn -Storybook検証用Props　ログイン処理確認-
+ * @param _StorybookCreateFn -Storybook検証用Props　新規作成処理確認-
  * @param _StorybookData -Storybook検証用Props 初期値設定-
  */
-export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
+export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
   const loginRepogitory = RepositoryFactory.get('login');
   const {
     control,
@@ -32,18 +33,36 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
     mode: 'onBlur',
   });
 
-  const [loginData, setLoginData] = React.useState<LoginData>(
+  const [createUserData, serCreateUserData] = React.useState<CreateUserData>(
     props._StorybookData
       ? props._StorybookData
       : {
+          userName: null,
           loginId: null,
           password: null,
+          afterPassword: null,
         }
   );
 
+  const checkPassWord = () => {
+    if (createUserData['password'] === createUserData['afterPassword']) {
+      return true;
+    } else {
+      setError('afterPassword', {
+        type: 'misMatch',
+        message: getMessage({ type: 'misMatch', label: 'パスワード' }),
+      });
+      return false;
+    }
+  };
+
   const createUserApi = async () => {
     await loginRepogitory
-      .createUser({ ...loginData })
+      .createUser({
+        userName: createUserData.userName,
+        loginId: createUserData.loginId,
+        password: createUserData.password,
+      })
       .then((res: AxiosResponse) => {
         props.onAccept();
       })
@@ -61,7 +80,7 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
       })
       .finally(() => {
         // Storybook専用
-        props._StorybookLoginFn && props._StorybookLoginFn();
+        props._StorybookCreateFn && props._StorybookCreateFn();
       });
   };
 
@@ -93,17 +112,16 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
             justifyContent="flex-start"
             alignItems="center"
             spacing={2}
-            style={{ width: '100%' }}
           >
             {FORM_DATA_LIST.map((formData) => {
               return (
                 <InputController
                   key={Math.random()}
                   formData={formData}
-                  value={loginData[formData.id]}
+                  value={createUserData[formData.id]}
                   onBlue={(value) =>
-                    setLoginData({
-                      ...loginData,
+                    serCreateUserData({
+                      ...createUserData,
                       [formData.id]: value,
                     })
                   }
@@ -119,20 +137,14 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
               variant="contained"
               onClick={() => {
                 (async () => {
-                  (await trigger()) && createUserApi();
+                  if (await trigger()) {
+                    checkPassWord() && createUserApi();
+                  }
                 })();
               }}
               fullWidth
             >
-              ログイン
-            </Button>
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={() => props.onClickCreate()}
-              fullWidth
-            >
-              新規登録
+              登録
             </Button>
           </Stack>
         </Stack>

@@ -1,7 +1,12 @@
 export interface Props {
-  onClickButton: (
-    state: 'login' | 'create',
-    userId: string,
-    password: string
-  ) => void;
+  onAccept: () => void;
+  onClickCreate: () => void;
+  _StorybookLoginFn?: () => void;
+  _StorybookData?: LoginData;
+}
+
+export interface LoginData {
+  [key: string]: string | null;
+  loginId: string | null;
+  password: string | null;
 }

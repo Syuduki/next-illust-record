@@ -3,8 +3,8 @@ export interface Props {
   size: 'medium' | 'small';
   variant: 'filled' | 'outlined' | 'standard';
   label: string;
-  value: string;
-  onBlurValue: (value: string) => void;
+  value: string | null;
+  onBlur: (value: string) => void;
   message?: string;
   required: boolean;
   width?: number;
