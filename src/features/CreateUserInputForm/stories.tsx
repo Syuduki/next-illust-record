@@ -4,15 +4,41 @@ import { action } from '@storybook/addon-actions';
 import { CreateUserInputForm } from './CreateUserInputForm';
 
 const meta: Meta<typeof CreateUserInputForm> = {
-  title: 'Feature/CreateUserInputForm',
+  title: 'Features/CreateUserInputForm',
   component: CreateUserInputForm,
 };
 
 export default meta;
 type Story = StoryObj<typeof CreateUserInputForm>;
 
-export const loginInputForm: Story = {
+export const noData: Story = {
   args: {
-    onClickButton: action('onClickButton'),
+    onAccept: action('onAccept'),
+  },
+};
+
+export const entered: Story = {
+  args: {
+    onAccept: action('onAccept'),
+    _StorybookCreateFn: action('Accept'),
+    _StorybookData: {
+      userName: 'storybook',
+      loginId: 'storybook123',
+      password: 'story12345',
+      afterPassword: 'story12345',
+    },
+  },
+};
+
+export const afterPassword_mismatch: Story = {
+  args: {
+    onAccept: action('onAccept'),
+    _StorybookCreateFn: action('Accept'),
+    _StorybookData: {
+      userName: 'storybook',
+      loginId: 'storybook123',
+      password: 'story12345',
+      afterPassword: 'story123',
+    },
   },
 };

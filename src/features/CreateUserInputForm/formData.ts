@@ -1,7 +1,5 @@
 import { FormData } from '@/types';
-
-import { useGetMessages } from '@/hooks';
-const getMessage = useGetMessages();
+import { getMessage } from '@/utils';
 
 export const FORM_DATA_LIST: FormData[] = [
   {

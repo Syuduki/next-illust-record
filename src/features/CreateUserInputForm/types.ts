@@ -1,11 +1,16 @@
 export interface Props {
-  onClickButton: (data: CreateUserData) => void;
+  onAccept: () => void;
+  _StorybookCreateFn?: () => void;
+  _StorybookData?: CreateUserData;
 }
 
-export interface CreateUserData {
-  [key: string]: string;
-  userName: string;
-  loginId: string;
-  password: string;
-  afterPassword: string;
+export interface Req_CreateUserData {
+  userName: string | null;
+  loginId: string | null;
+  password: string | null;
+}
+
+export interface CreateUserData extends Req_CreateUserData {
+  [key: string]: string | null;
+  afterPassword: string | null;
 }
