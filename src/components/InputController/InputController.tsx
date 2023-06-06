@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Controller } from 'react-hook-form';
 
 import { TextField, PassWordField } from '@/components';
+
 import { Props } from './types';
 
 export const InputController: React.FC<Props> = ({
   formData,
   value,
-  setValue,
+  onBlue,
   control,
   formState,
 }) => {
@@ -27,12 +28,7 @@ export const InputController: React.FC<Props> = ({
               variant={formData.variant}
               required={formData.required}
               width={formData.width}
-              onBlurValue={(blurValue) =>
-                setValue({
-                  ...value,
-                  [formData.id]: blurValue,
-                })
-              }
+              onBlur={(blurValue) => onBlue(blurValue)}
               value={value as string}
               message={
                 formState.errors[formData.id]?.message
@@ -49,12 +45,7 @@ export const InputController: React.FC<Props> = ({
               variant={formData.variant}
               required={formData.required}
               width={formData.width}
-              onBlurValue={(blurValue) =>
-                setValue({
-                  ...value,
-                  [formData.id]: blurValue,
-                })
-              }
+              onBlur={(blurValue) => onBlue(blurValue)}
               value={value as string}
               message={
                 formState.errors[formData.id]?.message

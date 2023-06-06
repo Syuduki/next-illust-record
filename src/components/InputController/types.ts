@@ -4,7 +4,7 @@ import { FormData } from '@/types';
 export interface Props {
   formData: FormData;
   value: any;
-  setValue: React.Dispatch<React.SetStateAction<any>>;
+  onBlue: (value: any) => void;
   control: Control<FieldValues, any>;
   formState: FormState<FieldValues>;
 }
