@@ -4,8 +4,8 @@ export interface Props {
   variant: 'filled' | 'outlined' | 'standard';
   multiline: boolean;
   label: string;
-  value: string;
-  onBlurValue: (value: string) => void;
+  value: string | null;
+  onBlur: (value: string) => void;
   message?: string;
   required: boolean;
   width?: number;
