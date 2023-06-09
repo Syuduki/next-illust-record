@@ -88,6 +88,10 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
     clearErrors();
   }, []);
 
+  React.useEffect(() => {
+    console.log(createUserData);
+  }, [createUserData]);
+
   // Storybook専用
   React.useEffect(() => {
     if (props._StorybookData) {
@@ -107,11 +111,18 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
           alignItems="center"
           spacing={2}
         >
+          <img
+            src="/images/logo.png"
+            alt="IllustRecord Logo"
+            width={250}
+            style={{ marginTop: '30px', marginBottom: '30px' }}
+          />
           <Stack
             direction="column"
             justifyContent="flex-start"
             alignItems="center"
             spacing={2}
+            style={{ width: '100%' }}
           >
             {FORM_DATA_LIST.map((formData) => {
               return (
@@ -145,6 +156,14 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
               fullWidth
             >
               登録
+            </Button>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={() => props.onClickLogin()}
+              fullWidth
+            >
+              ログイン
             </Button>
           </Stack>
         </Stack>

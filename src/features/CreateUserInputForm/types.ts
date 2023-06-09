@@ -1,5 +1,6 @@
 export interface Props {
   onAccept: () => void;
+  onClickLogin: () => void;
   _StorybookCreateFn?: () => void;
   _StorybookData?: CreateUserData;
 }

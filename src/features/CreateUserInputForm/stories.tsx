@@ -20,6 +20,7 @@ export const noData: Story = {
 export const entered: Story = {
   args: {
     onAccept: action('onAccept'),
+    onClickLogin: action('onClickLogin'),
     _StorybookCreateFn: action('Accept'),
     _StorybookData: {
       userName: 'storybook',
@@ -33,6 +34,7 @@ export const entered: Story = {
 export const afterPassword_mismatch: Story = {
   args: {
     onAccept: action('onAccept'),
+    onClickLogin: action('onClickLogin'),
     _StorybookCreateFn: action('Accept'),
     _StorybookData: {
       userName: 'storybook',
