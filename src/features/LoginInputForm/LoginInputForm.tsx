@@ -88,6 +88,12 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
           alignItems="center"
           spacing={2}
         >
+          <img
+            src="/images/logo.png"
+            alt="IllustRecord Logo"
+            width={250}
+            style={{ marginTop: '30px', marginBottom: '30px' }}
+          />
           <Stack
             direction="column"
             justifyContent="flex-start"
