@@ -4,7 +4,7 @@ export interface Props {
   variant: 'filled' | 'outlined' | 'standard';
   label: string;
   value: string | null;
-  onBlur: (value: string) => void;
+  onBlur: (value: string | null) => void;
   message?: string;
   required: boolean;
   width?: number;

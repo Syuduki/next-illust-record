@@ -12,13 +12,12 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import Stack from '@mui/material/Stack';
 
 export const PassWordField: React.FC<Props> = ({ ...props }) => {
-  const [values, setValues] = React.useState<State>({
-    password: '',
-    showPassword: false,
-  });
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
+
+  const [value, setValue] = React.useState<string>(props.value ?? '');
 
   const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setShowPassword(!showPassword);
   };
 
   const handleMouseDownPassword = (
@@ -57,12 +56,15 @@ export const PassWordField: React.FC<Props> = ({ ...props }) => {
         style={{ width: props.width ? `${props.width}px` : '100%' }}
       >
         <OutlinedInput
-          type={values.showPassword ? 'text' : 'password'}
-          value={props.value ?? ''}
+          type={showPassword ? 'text' : 'password'}
+          value={value}
           inputProps={{
             autoComplete: 'new-password',
           }}
-          onBlur={(e) => props.onBlur(e.target.value)}
+          onBlur={() => props.onBlur(value ? value : null)}
+          onChange={(event) => {
+            setValue(event.target.value);
+          }}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -71,7 +73,7 @@ export const PassWordField: React.FC<Props> = ({ ...props }) => {
                 onMouseDown={handleMouseDownPassword}
                 edge="end"
               >
-                {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                {showPassword ? <Visibility /> : <VisibilityOff />}
               </IconButton>
             </InputAdornment>
           }
