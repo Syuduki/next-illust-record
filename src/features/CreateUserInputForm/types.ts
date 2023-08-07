@@ -8,6 +8,7 @@ export interface Props {
 export interface Req_CreateUserData {
   userName: string | null;
   loginId: string | null;
+  email: string | null;
   password: string | null;
 }
 

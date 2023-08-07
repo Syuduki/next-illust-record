@@ -41,9 +41,9 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
         }
   );
 
-  const createUserApi = async () => {
+  const loginApi = async () => {
     await loginRepogitory
-      .createUser({ ...loginData })
+      .login({ ...loginData })
       .then((res: AxiosResponse) => {
         props.onAccept();
       })
@@ -125,7 +125,7 @@ export const LoginInputForm: React.FC<Props> = ({ ...props }) => {
               variant="contained"
               onClick={() => {
                 (async () => {
-                  (await trigger()) && createUserApi();
+                  (await trigger()) && loginApi();
                 })();
               }}
               fullWidth

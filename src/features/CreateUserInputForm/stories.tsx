@@ -25,6 +25,7 @@ export const entered: Story = {
     _StorybookData: {
       userName: 'storybook',
       loginId: 'storybook123',
+      email: 'illustRecord@example.com',
       password: 'story12345',
       afterPassword: 'story12345',
     },
@@ -39,6 +40,7 @@ export const afterPassword_mismatch: Story = {
     _StorybookData: {
       userName: 'storybook',
       loginId: 'storybook123',
+      email: 'illustRecord@example.com',
       password: 'story12345',
       afterPassword: 'story123',
     },

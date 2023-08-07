@@ -39,6 +39,7 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
       : {
           userName: null,
           loginId: null,
+          email: null,
           password: null,
           afterPassword: null,
         }
@@ -61,6 +62,7 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
       .createUser({
         userName: createUserData.userName,
         loginId: createUserData.loginId,
+        email: createUserData.email,
         password: createUserData.password,
       })
       .then((res: AxiosResponse) => {
@@ -97,6 +99,7 @@ export const CreateUserInputForm: React.FC<Props> = ({ ...props }) => {
     if (props._StorybookData) {
       setValue('userName', props._StorybookData['userName']);
       setValue('loginId', props._StorybookData['loginId']);
+      setValue('email', props._StorybookData['email']);
       setValue('password', props._StorybookData['password']);
       setValue('afterPassword', props._StorybookData['afterPassword']);
     }
