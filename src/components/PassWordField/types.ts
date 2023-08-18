@@ -7,6 +7,7 @@ export interface Props {
   onBlur: (value: string | null) => void;
   message?: string;
   required: boolean;
+  disabled: boolean;
   width?: number;
 }
 
