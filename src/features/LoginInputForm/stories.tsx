@@ -22,7 +22,7 @@ export const entered: Story = {
     onAccept: action('onAccept'),
     _StorybookLoginFn: action('Accept'),
     _StorybookData: {
-      loginId: 'storybook123',
+      login_id: 'storybook123',
       password: 'story12345',
     },
   },

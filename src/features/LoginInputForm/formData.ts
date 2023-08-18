@@ -3,7 +3,7 @@ import { getMessage } from '@/utils';
 
 export const FORM_DATA_LIST: FormData[] = [
   {
-    id: 'loginId',
+    id: 'login_id',
     label: 'ログインID',
     required: true,
     inputType: 'text',
@@ -20,7 +20,7 @@ export const FORM_DATA_LIST: FormData[] = [
     id: 'password',
     label: 'パスワード',
     required: true,
-    inputType: 'text',
+    inputType: 'password',
     variant: 'outlined',
     size: 'small',
     rules: {

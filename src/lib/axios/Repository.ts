@@ -7,6 +7,7 @@ export default axios.create({
     'X-Requested-With': 'XMLHttpRequest',
     Accept: '*',
     'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
     'Content-Typezzz': 'application/json',
     'Access-Control-Allow-Methods': 'POST,GET',
   },
