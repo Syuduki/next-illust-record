@@ -5,53 +5,49 @@ import { TextField, PassWordField } from '@/components';
 
 import { Props } from './types';
 
-export const InputController: React.FC<Props> = ({
-  formData,
-  value,
-  onBlue,
-  control,
-  formState,
-}) => {
+export const InputController: React.FC<Props> = ({ ...props }) => {
   return (
     <Controller
-      control={control}
-      name={formData.id}
-      rules={formData.rules}
+      control={props.control}
+      name={props.formData.id}
+      rules={props.formData.rules}
       render={({ field }) => (
         <div {...field} style={{ width: '100%' }}>
-          {['text', 'multiline'].includes(formData.inputType) && (
+          {['text', 'multiline'].includes(props.formData.inputType) && (
             <TextField
-              id={formData.id}
-              label={formData.label}
-              multiline={!!(formData.inputType === 'multiline')}
-              size={formData.size}
-              variant={formData.variant}
-              required={formData.required}
-              width={formData.width}
-              onBlur={(blurValue) => onBlue(blurValue)}
-              value={value as string}
+              id={props.formData.id}
+              label={props.formData.label}
+              multiline={!!(props.formData.inputType === 'multiline')}
+              size={props.formData.size}
+              variant={props.formData.variant}
+              required={props.formData.required}
+              width={props.formData.width}
+              onBlur={(blurValue) => props.onBlue(blurValue)}
+              value={props.value as string}
               message={
-                formState.errors[formData.id]?.message
-                  ? `${formState.errors[formData.id]?.message}`
+                props.formState.errors[props.formData.id]?.message
+                  ? `${props.formState.errors[props.formData.id]?.message}`
                   : ''
               }
+              disabled={props.disabled}
             />
           )}
-          {['password'].includes(formData.inputType) && (
+          {['password'].includes(props.formData.inputType) && (
             <PassWordField
-              id={formData.id}
-              label={formData.label}
-              size={formData.size}
-              variant={formData.variant}
-              required={formData.required}
-              width={formData.width}
-              onBlur={(blurValue) => onBlue(blurValue)}
-              value={value as string}
+              id={props.formData.id}
+              label={props.formData.label}
+              size={props.formData.size}
+              variant={props.formData.variant}
+              required={props.formData.required}
+              width={props.formData.width}
+              onBlur={(blurValue) => props.onBlue(blurValue)}
+              value={props.value as string}
               message={
-                formState.errors[formData.id]?.message
-                  ? `${formState.errors[formData.id]?.message}`
+                props.formState.errors[props.formData.id]?.message
+                  ? `${props.formState.errors[props.formData.id]?.message}`
                   : ''
               }
+              disabled={props.disabled}
             />
           )}
         </div>
