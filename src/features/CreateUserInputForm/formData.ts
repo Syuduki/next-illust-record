@@ -3,7 +3,7 @@ import { getMessage } from '@/utils';
 
 export const FORM_DATA_LIST: FormData[] = [
   {
-    id: 'userName',
+    id: 'name',
     label: 'ユーザー名',
     inputType: 'text',
     required: true,
@@ -27,6 +27,20 @@ export const FORM_DATA_LIST: FormData[] = [
       required: {
         value: true,
         message: getMessage({ type: 'require', label: 'ログインID' }),
+      },
+    },
+  },
+  {
+    id: 'email',
+    label: 'メールアドレス',
+    required: true,
+    inputType: 'text',
+    variant: 'outlined',
+    size: 'small',
+    rules: {
+      required: {
+        value: true,
+        message: getMessage({ type: 'require', label: 'メールアドレス' }),
       },
     },
   },

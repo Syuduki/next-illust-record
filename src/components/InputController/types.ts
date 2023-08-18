@@ -7,4 +7,5 @@ export interface Props {
   onBlue: (value: any) => void;
   control: Control<FieldValues, any>;
   formState: FormState<FieldValues>;
+  disabled: boolean;
 }

@@ -25,6 +25,7 @@ export const noData = () => {
       onBlue={action('onBlue')}
       control={control}
       formState={formState}
+      disabled={false}
     />
   );
 };
@@ -45,6 +46,28 @@ export const entered = () => {
       onBlue={action('onBlue')}
       control={control}
       formState={formState}
+      disabled={true}
+    />
+  );
+};
+
+export const disabled = () => {
+  const { control, formState, setValue } = useForm({
+    mode: 'onBlur',
+  });
+
+  React.useEffect(() => {
+    setValue('fixture', 'Storybook_Value');
+  }, []);
+
+  return (
+    <InputController
+      formData={FIX_FORM_DATA}
+      value={'Storybook_Value'}
+      onBlue={action('onBlue')}
+      control={control}
+      formState={formState}
+      disabled={true}
     />
   );
 };

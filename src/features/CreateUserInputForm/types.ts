@@ -1,12 +1,14 @@
 export interface Props {
   onAccept: () => void;
+  onClickLogin: () => void;
   _StorybookCreateFn?: () => void;
   _StorybookData?: CreateUserData;
 }
 
 export interface Req_CreateUserData {
-  userName: string | null;
+  name: string | null;
   loginId: string | null;
+  email: string | null;
   password: string | null;
 }
 

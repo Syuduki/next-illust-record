@@ -5,6 +5,12 @@ import { TextField as MuiTextField } from '@mui/material';
 import Stack from '@mui/material/Stack';
 
 export const TextField: React.FC<Props> = ({ ...props }) => {
+  const [value, setValue] = React.useState<string>(props.value ?? '');
+
+  React.useEffect(() => {
+    setValue(value);
+  }, [props.value]);
+
   return (
     <Stack
       direction="column"
@@ -32,13 +38,25 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
         id={props.id}
         size={props.size}
         variant={props.variant}
-        value={props.value ?? ''}
+        value={value}
         multiline={props.multiline}
-        onBlur={(e) => props.onBlur(e.target.value)}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        onBlur={() => {
+          props.onBlur(value ? value : null);
+        }}
         error={!!props.message}
         helperText={props.message}
-        style={{ width: props.width ? `${props.width}px` : '100%' }}
-      ></MuiTextField>
+        sx={{
+          width: props.width ? `${props.width}px` : '100%',
+          '& .MuiFilledInput-root': {
+            background: props.disabled ? undefined : 'white',
+            textAlign: 'center',
+          },
+        }}
+        disabled={props.disabled}
+      />
     </Stack>
   );
 };

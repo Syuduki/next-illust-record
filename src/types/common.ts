@@ -8,8 +8,3 @@ export interface FormData {
   rules: object;
   width?: number;
 }
-
-export interface ValidateMessage {
-  key: string;
-  message: string;
-}

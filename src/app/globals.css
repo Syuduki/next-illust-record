@@ -105,3 +105,8 @@ a {
     color-scheme: dark;
   }
 }
+
+:disabled {
+  color: black !important;
+  -webkit-text-fill-color: black !important;
+}

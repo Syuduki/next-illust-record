@@ -7,6 +7,6 @@ export interface Props {
 
 export interface LoginData {
   [key: string]: string | null;
-  loginId: string | null;
+  login_id: string | null;
   password: string | null;
 }

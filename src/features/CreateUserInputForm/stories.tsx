@@ -20,10 +20,12 @@ export const noData: Story = {
 export const entered: Story = {
   args: {
     onAccept: action('onAccept'),
+    onClickLogin: action('onClickLogin'),
     _StorybookCreateFn: action('Accept'),
     _StorybookData: {
       userName: 'storybook',
       loginId: 'storybook123',
+      email: 'illustRecord@example.com',
       password: 'story12345',
       afterPassword: 'story12345',
     },
@@ -33,10 +35,12 @@ export const entered: Story = {
 export const afterPassword_mismatch: Story = {
   args: {
     onAccept: action('onAccept'),
+    onClickLogin: action('onClickLogin'),
     _StorybookCreateFn: action('Accept'),
     _StorybookData: {
       userName: 'storybook',
       loginId: 'storybook123',
+      email: 'illustRecord@example.com',
       password: 'story12345',
       afterPassword: 'story123',
     },
