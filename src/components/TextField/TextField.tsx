@@ -48,8 +48,15 @@ export const TextField: React.FC<Props> = ({ ...props }) => {
         }}
         error={!!props.message}
         helperText={props.message}
-        style={{ width: props.width ? `${props.width}px` : '100%' }}
-      ></MuiTextField>
+        sx={{
+          width: props.width ? `${props.width}px` : '100%',
+          '& .MuiFilledInput-root': {
+            background: props.disabled ? undefined : 'white',
+            textAlign: 'center',
+          },
+        }}
+        disabled={props.disabled}
+      />
     </Stack>
   );
 };

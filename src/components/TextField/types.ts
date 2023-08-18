@@ -9,4 +9,5 @@ export interface Props {
   message?: string;
   required: boolean;
   width?: number;
+  disabled: boolean;
 }

@@ -68,3 +68,19 @@ export const Multiline: Story = {
     onBlur: action('onBlurValue'),
   },
 };
+
+export const ReadOnly: Story = {
+  args: {
+    width: 500,
+    variant: 'outlined',
+    size: 'medium',
+    multiline: true,
+    required: false,
+    message: '',
+    id: 'story',
+    label: 'ストーリーテキスト',
+    value: 'storyブック',
+    onBlur: action('onBlurValue'),
+    disabled: true,
+  },
+};
