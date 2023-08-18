@@ -69,7 +69,7 @@ export const Multiline: Story = {
   },
 };
 
-export const ReadOnly: Story = {
+export const Disabled: Story = {
   args: {
     width: 500,
     variant: 'outlined',
